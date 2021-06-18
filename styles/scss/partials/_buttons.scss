@@ -1,0 +1,424 @@
+// Buttons
+button {
+  &:focus {
+    outline: none;
+  }
+}
+
+%transition-before {
+  &::before {
+    left: 0;
+    opacity: 1;
+    right: 0;
+    transition: 0.5s all ease;
+  }
+}
+
+@mixin button-config($width, $height: 50px, $radius: 10px) {
+  align-items: center;
+  border-radius: $radius;
+  cursor: pointer;
+  display: flex;
+  font-family: $futura-heavy;
+  font-size: 14px;
+  height: $height;
+  justify-content: center;
+  line-height: 24px;
+  padding: 0;
+  width: $width;
+
+  &:hover:enabled {
+    box-shadow: 0 4px 6px $black-20;
+  }
+
+  &:focus:enabled {
+    box-shadow: 0 4px 6px $black-20;
+    outline: none;
+  }
+
+  &:disabled {
+    cursor: not-allowed;
+  }
+}
+
+@mixin button-background($color: $white) {
+  box-sizing: border-box;
+  overflow: hidden;
+  position: relative;
+  transition: 0.5s all ease;
+  z-index: 1;
+
+  &::before {
+    bottom: 0;
+    content: '';
+    left: 50%;
+    opacity: 0;
+    position: absolute;
+    right: 50%;
+    top: 0;
+    transition: 0.5s all ease;
+    z-index: -2;
+  }
+
+  &:hover:enabled {
+    @extend %transition-before;
+  }
+
+  &:focus {
+    @extend %transition-before;
+  }
+
+  &:disabled {
+    background-color: $gray-light;
+    border: 0;
+    color: $white;
+  }
+
+  @if $color == $white {
+    background-color: transparent;
+    border: 2px solid $blue-storm;
+    color: $blue-storm;
+
+    &::before {
+      background-color: $blue-storm;
+    }
+
+    &:hover:enabled {
+      color: $white;
+    }
+
+    &:focus {
+      color: $white;
+    }
+  }
+
+  @if $color == $blue-night {
+    background-color: transparent;
+    border: 2px solid $white;
+    color: $white;
+
+    &::before {
+      background-color: $white;
+    }
+
+    &:hover:enabled {
+      color: $blue-night;
+    }
+
+    &:focus {
+      color: $blue-night;
+    }
+  }
+
+  @if $color == $blue-storm {
+    background-color: $blue-storm;
+    border: 0;
+    color: $white;
+
+    &::before {
+      background-color: $blue-night;
+    }
+  }
+
+  @if $color == $yellow-summer {
+    background-color: $yellow-summer;
+    border: 0;
+    color: $blue-night;
+
+    &::before {
+      background-color: $blue-morning;
+    }
+  }
+}
+
+.btn-big {
+  @include button-config(180px);
+  @include button-background($blue-storm);
+}
+
+.btn-big-inverted {
+  @include button-config(180px);
+  @include button-background($yellow-summer);
+}
+
+.btn-medium {
+  @include button-config(150px);
+  @include button-background($blue-storm);
+}
+
+.btn-medium-yellow {
+  @include button-config(150px);
+  @include button-background($yellow-summer);
+}
+
+.btn-small {
+  @include button-config(120px);
+  @include button-background($blue-storm);
+}
+
+.btn-mini {
+  @include button-config(80px, 32px, 8px);
+  @include button-background($blue-storm);
+}
+
+.btn-big-inverted-secondary {
+  @include button-config(180px);
+  @include button-background();
+}
+
+.btn-medium-secondary {
+  @include button-config(150px);
+  @include button-background();
+}
+
+.btn-medium-secondary-inverted {
+  @include button-config(150px);
+  @include button-background($blue-night);
+}
+
+.btn-small-secondary {
+  @include button-config(120px);
+  @include button-background();
+}
+
+.btn-mini-secondary {
+  @include button-config(80px, 32px, 8px);
+  @include button-background();
+}
+
+.btn-mini-left {
+  @include media('mobile') {
+    position: absolute;
+    right: 15px;
+  }
+}
+
+.btn-mini-secondary-h100 {
+  @include button-config(80px, 100%, 8px);
+  @include button-background();
+}
+
+@mixin config-link($color, $color-hover, $underline: true) {
+  color: $color;
+  cursor: pointer;
+  font-family: $futura-heavy;
+  font-size: 14px;
+  text-align: left;
+
+  @if $underline {
+    text-decoration: underline;
+  }
+
+  &:hover {
+    color: $color-hover;
+  }
+}
+
+.link {
+  @include config-link($blue-sky, $blue-night);
+}
+
+.link-inverted {
+  @include config-link($white, $blue-morning);
+}
+
+.btn-link {
+  @include config-link($blue-sky, $blue-night);
+  background-color: transparent;
+  border: 0;
+  padding: 0;
+}
+
+.btn-link-arrow-left {
+  @include config-link($blue-storm, $blue-night, false);
+  align-items: center;
+  background-color: transparent;
+  border: 0;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  padding: 0;
+
+  svg {
+    transform: rotate(270deg);
+
+    path {
+      stroke: $blue-storm;
+    }
+  }
+
+  span {
+    padding-left: 10px;
+  }
+
+  &:focus {
+    outline: none;
+  }
+}
+
+.btn-link-arrow-right {
+  @include config-link($blue-sky, $blue-night);
+  align-items: center;
+  background-color: transparent;
+  border: 0;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 0;
+
+  &::after {
+    background-image: url('/arrow-right.svg');
+    background-position: 100% center;
+    background-repeat: no-repeat;
+    background-size: 16px 16px;
+    content: '';
+    height: 16px;
+    padding-left: 20px;
+    width: 16px;
+  }
+
+  &:focus {
+    outline: none;
+  }
+}
+
+.btn-link-arrow-right-inverted {
+  @include config-link($white, $blue-morning);
+  align-items: center;
+  background-color: transparent;
+  border: 0;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 0;
+
+  &::after {
+    background-image: url('/arrow-right.svg');
+    background-position: 100% center;
+    background-repeat: no-repeat;
+    background-size: 16px 16px;
+    content: '';
+    height: 16px;
+    padding-left: 20px;
+    width: 16px;
+  }
+
+  &:focus {
+    outline: none;
+  }
+}
+
+.btn-float-button {
+  @include button-config(60px, 60px, 50%);
+  background-color: $yellow-summer;
+  border: 0;
+  bottom: 5%;
+  overflow: hidden;
+  padding: 0;
+  position: fixed;
+  right: 5%;
+}
+
+.circle-button-transparent {
+  @include button-config(40px, 40px, 50%);
+  background-color: transparent;
+  border: 1.5px solid $blue-storm;
+  margin: 0;
+  padding: 0;
+}
+
+.cicle-button-blue {
+  @include button-config(60px, 60px, 50%);
+  background-color: $blue-storm;
+  background-image: url('/chevron.svg');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 24px 24px;
+  border: 0;
+
+  &:disabled {
+    background-color: $gray-light;
+  }
+}
+
+@mixin config-svg-button-input {
+  background-color: transparent;
+  border: 0;
+  padding: 0;
+  position: absolute;
+
+  &:focus {
+    outline: none;
+  }
+
+  svg {
+    height: 20px;
+    width: 20px;
+  }
+}
+
+.svg-button-input-small {
+  @include config-svg-button-input;
+  right: 6px;
+  top: 12px;
+}
+
+.svg-button {
+  background-color: transparent;
+  border: 0;
+  margin: 0;
+  padding: 0;
+
+  &:focus {
+    outline: none;
+  }
+}
+
+.svg-button-search {
+  svg {
+    path {
+      fill: $blue-storm;
+    }
+
+    circle {
+      stroke: $blue-storm;
+    }
+  }
+
+  &:focus,
+  &:hover {
+    svg {
+      path {
+        fill: $white;
+      }
+
+      circle {
+        stroke: $white;
+      }
+    }
+  }
+}
+
+.center-first-button {
+  align-items: center;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+
+  @include media('md') {
+    justify-content: center;
+  }
+}
+
+.center-second-button {
+  align-items: center;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+
+  @include media('md') {
+    justify-content: center;
+  }
+}
+
+// End Buttons

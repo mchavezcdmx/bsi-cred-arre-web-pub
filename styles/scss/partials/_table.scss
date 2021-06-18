@@ -1,0 +1,119 @@
+@mixin config-table-horizontal-dividers($width, $height, $num-column) {
+  border-collapse: collapse;
+  table-layout: fixed;
+  width: $width;
+
+  th {
+    @include sub;
+    border-bottom: 1.5px solid $blue-sky;
+    padding: 8px;
+    width: #{100 / $num-column}vw;
+  }
+
+  td {
+    border-bottom: 1px solid $blue-shadow;
+    padding: 8px;
+    text-align: left;
+    vertical-align: top;
+    width: #{100 / $num-column}vw;
+  }
+
+  thead {
+    tr {
+      display: block;
+    }
+  }
+
+  tbody {
+    @include scroll-config-firefox;
+
+    display: block;
+    height: $height;
+    overflow: auto;
+    width: 100%;
+  }
+}
+
+.table-horizontal-dividers-two-column {
+  @include config-table-horizontal-dividers(420px, 260px, 2);
+  @include scroll-config(4px);
+
+  @include media('sm') {
+    @include config-table-horizontal-dividers(260px, 460px, 2);
+  }
+
+  thead {
+    th {
+      @include sub;
+      color: $gray;
+    }
+  }
+
+  tbody {
+    td:first-child {
+      @include sub;
+      color: $gray;
+    }
+
+    td:last-child {
+      @include body-2;
+      color: $gray;
+    }
+  }
+}
+
+.table-documentacion {
+  overflow: auto;
+  width: 100%;
+
+  &::-webkit-scrollbar {
+    -webkit-appearance: none;
+    height: 4px;
+    width: 4px;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: rgba(34, 90, 167, 0.2);
+    border-radius: 10px;
+  }
+
+  th {
+    color: $gray;
+    text-align: center;
+  }
+
+  td {
+    justify-content: center;
+
+    .radio-table-wrapper {
+      display: flex;
+      justify-content: center;
+      min-width: 120px;
+
+      .radio-button_container-check-text-no-children__3rz0x .radio-button_container-input__1Od-8 {
+        margin-right: 0;
+      }
+    }
+  }
+
+  @include media('sm') {
+    overflow-x: scroll;
+    -webkit-overflow-scrolling: auto;
+  }
+}
+
+.footer {
+  border-top: 1.5px solid $blue-shadow;
+}
+
+.footer-paginator {
+  background-color: $white;
+  border-top: 1.5px solid $blue-shadow;
+  bottom: 0;
+  width: 100%;
+  z-index: 2;
+}
+
+.table-margin {
+  margin-bottom: 80px;
+}

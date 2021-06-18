@@ -1,0 +1,69 @@
+/* stylelint-disable */
+.DayPicker {
+  width: 100%;
+}
+
+.DayPicker-wrapper {
+  height: 280px;
+
+  &:focus {
+    outline: 0 !important;
+  }
+}
+
+.DayPicker-Caption {
+  color: $gray;
+  font-family: $futura-heavy;
+  font-size: 16px;
+  text-align: center !important;
+  @include media('mobile') {
+    font-size: 14px;
+  }
+}
+
+.DayPicker-Months {
+  position: relative;
+  top: -60px;
+  width: 100%;
+}
+
+.DayPicker-WeekdaysRow {
+  border-bottom: 1px solid $blue-shadow;
+}
+
+.DayPicker-Weekday {
+  color: $blue-light;
+  font-family: $futura-book;
+  font-size: 12px;
+}
+
+.DayPicker-Day {
+  color: $gray;
+  font-family: $futura-book;
+  font-size: 12px;
+}
+
+.Normal {
+  .DayPicker-Day--selected {
+    background-color: $blue-storm !important;
+  }
+}
+
+.Range {
+  .DayPicker-Day--selected:not(.DayPicker-Day--end):not(.DayPicker-Day--outside) {
+    background-color: $blue-storm !important;
+    border-radius: 50% 0 0 50%;
+  }
+
+  .DayPicker-Day--selected:not(.DayPicker-Day--start):not(.DayPicker-Day--outside) {
+    background-color: $blue-storm !important;
+    border-radius: 0 50% 50% 0;
+  }
+
+  .DayPicker-Day--selected:not(.DayPicker-Day--start):not(.DayPicker-Day--end):not(.DayPicker-Day--outside) {
+    background-color: $blue-light !important;
+    border-radius: 0 !important;
+    color: $blue-sky;
+  }
+}
+/* stylelint-enable */

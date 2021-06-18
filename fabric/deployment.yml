@@ -1,0 +1,48 @@
+apiVersion: v1
+kind: DeploymentConfig
+metadata:
+  name: 'bsi-cred-arre-web-pub'
+  labels:
+    app: 'bsi-cred-arre-web-pub'
+spec:
+  template:
+    spec:
+      containers:
+        - image: 'bsi-cred-arre-web-pub:latest'
+          name: 'bsi-cred-arre-web-pub'
+          securityContext:
+            privileged: false
+          envFrom:
+          - secretRef:
+              name: bsi-cred-arre-web-pub
+          ports:
+            - containerPort: 3000
+              name: http
+              protocol: TCP
+          resources:
+            limits:
+              cpu: 1000m
+              memory: 1Gi
+            requests:
+              cpu: 500m
+              memory: 512Mi
+          volumeMounts:
+          - name: bsi-cred-arre-web-pub-config
+            mountPath: /deployments/config
+      volumes:
+      - name: bsi-cred-arre-web-pub-config
+        configMap:
+          name: bsi-cred-arre-web-pub
+  replicas: 1
+  selector:
+    app: 'bsi-cred-arre-web-pub'
+  triggers:
+    - type: ConfigChange
+    - type: ImageChange
+      imageChangeParams:
+        automatic: true
+        containerNames:
+          - 'bsi-cred-arre-web-pub'
+        from:
+          kind: ImageStreamTag
+          name: 'bsi-cred-arre-web-pub:latest'

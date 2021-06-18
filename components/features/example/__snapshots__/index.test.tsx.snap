@@ -1,0 +1,26 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Test in example component Should render the component 1`] = `
+<DocumentFragment>
+  <div
+    class="example"
+  >
+    <h1 />
+    <div>
+      <button
+        aria-label="Increment value"
+      >
+        Increment
+      </button>
+      <p>
+        0
+      </p>
+      <button
+        aria-label="Decrement value"
+      >
+        Decrement
+      </button>
+    </div>
+  </div>
+</DocumentFragment>
+`;

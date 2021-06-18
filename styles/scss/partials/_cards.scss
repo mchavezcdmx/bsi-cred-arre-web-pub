@@ -1,0 +1,605 @@
+.line {
+  background-color: $gray-light;
+  height: 1px;
+}
+
+.card-login-1 {
+  background-color: $white;
+  border-radius: 16px;
+  height: 645px;
+  padding: 10px 30px 24px;
+  width: 100%;
+
+  @include media('md') {
+    padding: 10px 0 24px;
+  }
+
+  @include media('sm') {
+    height: 100%;
+    margin-bottom: 25px;
+  }
+}
+
+.card-login {
+  background-color: $white;
+  border-radius: 16px;
+  height: 645px;
+  padding: 10px 30px 24px;
+  width: 100%;
+
+  @include media('md') {
+    height: 540px;
+    padding: 10px 16px 24px;
+  }
+}
+
+.card-simple-white-shadow {
+  background-color: $white;
+  border-radius: 16px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
+  padding: 16px;
+  position: relative;
+  z-index: 2;
+}
+
+.card-simple-blue-night {
+  background-color: $blue-night;
+  border-radius: 16px;
+  color: $white;
+  display: flex;
+
+  flex-direction: column;
+  height: 100%;
+  justify-content: flex-start;
+  padding: 10px;
+
+  @include media('sm') {
+    flex-direction: row;
+    padding: 18px;
+
+    img {
+      margin-right: 18px;
+      width: 48px;
+    }
+
+    div {
+      h4 {
+        align-self: flex-start;
+        margin: 0;
+        text-align: left;
+      }
+
+      p {
+        align-self: flex-start;
+        margin: 0;
+        text-align: left;
+      }
+    }
+  }
+}
+
+.card-simple-blue-storm {
+  background-color: $blue-storm;
+  border-radius: 16px;
+  color: $white;
+  padding: 24px;
+
+  p {
+    @include body-2;
+  }
+}
+
+@mixin config-card($color, $border-color: none) {
+  background-color: $color;
+  border-radius: 16px;
+  @if $border-color != none {
+    border: 1.5px solid $border-color;
+  }
+
+  padding: 16px;
+  width: 100%;
+
+  @include media('md') {
+    padding: 18px;
+  }
+}
+
+.card-simple-blue-light {
+  @include config-card($blue-light);
+
+  p {
+    @include body-2;
+    color: $gray-dark;
+  }
+
+  .col-4 {
+    .color-blue-night {
+      line-height: 23.4px;
+      margin-bottom: 4px;
+    }
+  }
+}
+
+.card-simple-white {
+  @include config-card($white);
+
+  p {
+    @include body-2;
+    color: $gray-dark;
+  }
+}
+
+.card-simple-border-blue-storm {
+  @include config-card(transparent, $blue-storm);
+}
+
+@mixin config-card-sombra($color) {
+  @include config-card($color);
+  align-items: center;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  justify-content: flex-start;
+
+  @include media('md') {
+    flex-direction: row;
+  }
+}
+
+.card-blue-night {
+  @include config-card-sombra($blue-night);
+}
+
+// .card-simple-white-shadow {
+//   @include config-card-sombra($white);
+// }
+
+.line-card {
+  border: 0;
+  border-right: 2px solid $blue-morning;
+
+  @include media('md') {
+    border: 0;
+    border-bottom: 2px solid $blue-morning;
+  }
+}
+
+.line-bottom {
+  border: 0;
+  border-bottom: 1px solid $blue-shadow;
+}
+
+@mixin config-card-transparent-only-row($color) {
+  align-items: flex-start;
+  background-color: $color;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  justify-content: space-between;
+  padding: 24px;
+  width: 100%;
+
+  @include media('md') {
+    padding: 0;
+  }
+}
+
+.card-transparent-only-row {
+  @include config-card-transparent-only-row(transparent);
+}
+
+.card-simple-white-img {
+  align-items: center;
+  background-color: $white;
+  border-radius: 16px;
+  box-shadow: 0 10px 15px rgba(0, 42, 97, 0.08);
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  justify-content: flex-start;
+  padding: 24px;
+
+  @include media('md') {
+    flex-direction: row;
+    padding: 18px;
+
+    img {
+      margin-right: 18px;
+      width: 48px;
+    }
+
+    div {
+      h4 {
+        align-self: flex-start;
+        margin: 0;
+        text-align: left;
+      }
+
+      p {
+        align-self: flex-start;
+        margin: 0;
+        text-align: left;
+      }
+    }
+  }
+
+  div {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    h4 {
+      color: $blue-storm;
+      text-align: center;
+    }
+
+    p {
+      @include body-2;
+      text-align: center;
+    }
+  }
+}
+
+.card-simple-transparent-img {
+  align-items: center;
+  background-color: $white;
+  border-radius: 16px;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  justify-content: flex-start;
+  padding: 24px 0;
+
+  p {
+    @include sub;
+    color: $blue-storm;
+    text-align: center;
+  }
+
+  @include media('md') {
+    flex-direction: row;
+
+    svg {
+      margin-right: 18px;
+    }
+
+    p {
+      margin: 0;
+      text-align: left;
+    }
+  }
+}
+
+.card-simple-white-svg {
+  align-items: center;
+  background-color: $white;
+  border-radius: 16px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  justify-content: flex-start;
+  padding: 24px 0;
+  width: 100%;
+
+  svg {
+    display: inline-block;
+    height: 80px;
+    padding-bottom: 16px;
+    width: 80px;
+  }
+
+  p {
+    @include sub;
+
+    color: $gray;
+    text-align: center;
+  }
+
+  @include media('md') {
+    flex-direction: row;
+    padding: 16px;
+
+    div {
+      margin-right: 12px;
+      width: 20%;
+
+      svg {
+        height: 48px;
+        padding-bottom: 0;
+        width: 48px;
+      }
+    }
+
+    p {
+      margin: 0;
+      text-align: left;
+    }
+  }
+}
+
+// TODO Actualizar
+.card-simple-white-svg-simple {
+  align-items: center;
+  background-color: $white;
+  border-radius: 16px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  justify-content: flex-start;
+  padding: 24px 0;
+  width: 100%;
+
+  svg {
+    display: inline-block;
+    height: 80px;
+    padding-bottom: 16px;
+    width: 80px;
+  }
+
+  p {
+    @include sub;
+
+    color: $gray;
+    text-align: center;
+  }
+
+  @include media('md') {
+    flex-direction: row;
+    padding: 16px;
+
+    div {
+      svg {
+        height: 48px;
+        padding-bottom: 0;
+        width: 48px;
+      }
+    }
+
+    p {
+      margin: 0;
+      text-align: left;
+    }
+  }
+}
+
+.card-button {
+  border: 2px solid transparent;
+  cursor: pointer;
+
+  &:focus {
+    outline: none;
+  }
+
+  &:hover {
+    border: 2px solid $blue-sky;
+  }
+}
+
+.card-selected-blue-sky {
+  border: 2px solid $blue-sky;
+
+  p {
+    color: $blue-sky;
+  }
+}
+
+.card-simple-transparent {
+  background-color: transparent;
+  border-radius: 16px;
+  padding: 24px;
+}
+
+.card-accordion {
+  background-color: $blue-light;
+  border-radius: 16px;
+  padding: 0 20px;
+}
+
+
+.card-accordion-steps {
+  color: $gray;
+  background-color: $blue-light;
+  border-radius: 16px;
+  padding: 0;
+  position: relative;
+
+  .head {
+    padding: 16px;
+
+    svg {
+      margin-top: 15px;
+    }
+  }
+
+  .step-description {
+    font-family: $futura-book;
+    font-size: 12px;
+    color: $gray;
+  }
+
+  ul {
+    padding-left: 14px ;
+    margin: 0;
+  }
+
+  .svg-small {
+    margin-left: 6px;
+    z-index: 1;
+  }
+
+  .medium-svg {
+    margin-left: 3px;
+    z-index: 1;
+  }
+
+  .status-step {
+    background-color: #AAAAAA;
+    border-radius: 6px;
+    height: 12px;
+    margin: 8px 30px 0 6px;
+    width: 12Px;
+    z-index: 1;
+  }
+
+  .section-svg {
+    z-index: 1;
+
+    svg {
+      margin-right: 23px;
+      z-index: 1;
+    }
+  }
+
+  li {
+    display: flex;
+    position: relative;
+    &::after {
+      content: '';
+      width: 0;
+      height: 40px;
+      position: absolute;
+      border: 1px solid black;
+      top: 10px;
+      left: 11px;
+    }
+
+    svg {
+      margin-right: 27px;
+      z-index: 1;
+    }
+  }
+
+  .blue-step {
+    li.step-inactive {
+      &::after {
+        border: 1px solid #AAAAAA;
+      }
+    }
+
+    li {
+      &::after {
+        border: 1px solid #225AA7;
+      }
+    }
+  }
+
+  .green-step {
+
+    font-family: gra;
+    li.step-inactive {
+      &::after {
+        border: 1px solid #AAAAAA;
+      }
+
+      .status-step {
+        margin-right: 38px;
+      }
+    }
+
+    li {
+      &::after {
+        border: 1px solid #39C6AC;
+      }
+    }
+
+    &.final-step {
+      li {
+        :last-child
+        &:last-child::after {
+          border: 1px solid transparent;
+        }
+      }
+    }
+  }
+}
+
+.disabled-card-svg {
+  p {
+    color: $gray-light;
+  }
+
+  svg {
+    filter: grayscale(100%);
+  }
+}
+
+.card-blue-sky {
+  background-color: $blue-sky;
+  border-radius: 16px;
+  padding: 16px;
+}
+
+.card-mini-blue-sky {
+  background-color: $blue-light;
+  border-radius: 8px;
+  padding: 8px;
+}
+
+.card-simple-blue-sky {
+  background-color: $blue-sky;
+  border-radius: 16px;
+  color: $white;
+  height: 95px;
+  position: relative;
+  width: 400px;
+}
+
+.card-simple-blue-sky-small {
+  background-color: $blue-sky;
+  border-radius: 16px;
+  color: $white;
+  height: 80px;
+  position: relative;
+  width: 200px;
+}
+
+.card-simple-blue-sky-medium {
+  align-items: center;
+  background-color: $blue-sky;
+  border-radius: 16px;
+  color: $white;
+  height: 120px;
+  position: relative;
+  width: 200px;
+}
+
+.card-simple-blue-morning {
+  background-color: $blue-morning;
+  border-radius: 16px;
+  color: $white;
+  height: 95px;
+  position: relative;
+  width: 400px;
+}
+
+.card-simple-blue-morning-small {
+  background-color: $blue-morning;
+  border-radius: 16px;
+  color: $white;
+  height: 80px;
+  position: relative;
+  width: 200px;
+}
+
+.card-simple-blue-morning-medium {
+  align-items: center;
+  background-color: $blue-morning;
+  border-radius: 16px;
+  color: $white;
+  height: 120px;
+  position: relative;
+  width: 200px;
+}
+
+.card-simple-yellow-summer-small {
+  background-color: $yellow-summer;
+  border-radius: 16px;
+  color: $white;
+  height: 80px;
+  position: relative;
+  width: 200px;
+}

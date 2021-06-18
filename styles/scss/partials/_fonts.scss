@@ -1,0 +1,114 @@
+// Default sizes
+h1 {
+  font-family: $futura-heavy;
+  font-size: 48px;
+  @include media('mobile') {
+    font-size: 32px;
+  }
+}
+
+h2 {
+  font-family: $futura-heavy;
+  font-size: 36px;
+  line-height: 40px;
+
+  @include media('mobile') {
+    font-size: 24px;
+  }
+}
+
+h3 {
+  font-family: $futura-heavy;
+  font-size: 24px;
+  @include media('mobile') {
+    font-size: 18px;
+  }
+}
+
+h4 {
+  font-family: $futura-heavy;
+  font-size: 18px;
+  line-height: 27px;
+  @include media('mobile') {
+    font-size: 16px;
+  }
+}
+
+h5 {
+  font-family: $futura-heavy;
+  font-size: 16px;
+}
+
+.input {
+  font-family: $futura-book;
+  font-size: 32px;
+  @include media('mobile') {
+    font-size: 18px;
+  }
+}
+
+.input2 {
+  font-family: $futura-book;
+  font-size: 24px;
+  @include media('mobile') {
+    font-size: 18px;
+  }
+}
+
+.sub {
+  font-family: $futura-heavy;
+  font-size: 16px;
+  @include media('mobile') {
+    font-size: 14px;
+  }
+}
+
+.body1 {
+  font-family: $futura-book;
+  font-size: 18px;
+}
+
+.body2 {
+  // @include body-2;
+  font-family: $futura-book;
+  font-size: 16px;
+}
+
+.body3 {
+  // @include body-3;
+  font-family: $futura-book;
+  font-size: 14px;
+}
+
+.button {
+  // @include button-link;
+  font-family: $futura-heavy;
+  font-size: 14px;
+}
+
+.overline {
+  // @include overline;
+  font-family: $futura-book;
+  font-size: 12px;
+}
+
+.text-decoration-underline {
+  text-decoration: underline;
+}
+
+.text-decoration-underline-gray {
+  text-decoration: underline;
+  text-decoration-color: $gray;
+}
+
+.text-overflow {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+// Colors
+
+p {
+  color: $gray-dark;
+}

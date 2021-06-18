@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  labels:
+    app: bsi-cred-arre-web-pub
+
+  name: bsi-cred-arre-web-pub
+data:
+  application.properties: |
+    # ===================================================================
+    # Propiedades generales de la aplicación
+    # ===================================================================
+    # Puerto por defecto donde escucha el servidor
+    server.port=3000
+  

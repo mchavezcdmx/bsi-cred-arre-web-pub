@@ -1,0 +1,55 @@
+.modal-alerta-container {
+  width: 424px;
+
+  @include media('sm') {
+    width: 270px;
+  }
+}
+
+.modal-container-video {
+  padding: 10px;
+  width: 565px;
+
+  @include media('sm') {
+    width: 270px;
+  }
+}
+
+.modal-video {
+  border-radius: 6px;
+
+  @include media('sm') {
+    width: 100%;
+  }
+}
+
+.modal-portal-privado {
+  padding: 10px;
+  width: 600px;
+
+  @include media('sm') {
+    width: 270px;
+  }
+}
+
+// .modal-container {
+//   width: 560px;
+// }
+
+// .modal-video {
+//   border-radius: 6px;
+//   height: 315px;
+//   width: 560px;
+
+//   @include media('sm') {
+//     height: 315px;
+//     width: 320px;
+//   }
+// }
+
+// @media screen and (max-width: 541px) and (min-width: 420px) {
+//  .modal-video  {
+//     height: 315px;
+//     width: 420px;
+//   }
+// }
